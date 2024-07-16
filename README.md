@@ -44,6 +44,11 @@ ERP进销存采用前后端分离架构，前端基于Node.js、Vue2、Element-U
 ### 历史版本
 1. V5社区版：https://gitee.com/yimiaoOpen/nodcloud-v5
 2. V6社区版：https://gitee.com/yimiaoOpen/nodcloud
+3. v7社区版：当前版本
+3. V8商业版：https://erp.nodcloud.com
+
+
+
 
 #### 商用版本
 1. 商业版V8为点可云主力产品，提供长期售后支持。
