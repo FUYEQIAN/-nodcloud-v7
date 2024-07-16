@@ -66,5 +66,5 @@ ERP进销存采用前后端分离架构，前端基于Node.js、Vue2、Element-U
 
 ### 演示截图
 
-
+![输入图片说明](img/1.png)
 
