@@ -8,7 +8,7 @@ ERP进销存采用前后端分离架构，前端基于Node.js、Vue2、Element-U
 
 
 #### 演示站点
-1. [点击查看](https://web.nodcloud.cn)
+1. [web.nodcloud.cn](https://web.nodcloud.cn)
 2. 账号 admin
 3. 密码 admin
 
@@ -34,7 +34,7 @@ ERP进销存采用前后端分离架构，前端基于Node.js、Vue2、Element-U
 1. 社区版为原商业版本，业务逻辑完整且多次迭代。
 2. 社区版仅限于学习交流用途，商用须取得授权。
 3. 受三方组件授权影响，社区版未提供打印功能。
-4. 受销控影响，社区版本未提供零售功能。
+4. 受销控影响，社区版本短期内不提供零售模块。
 5. [完整授权版本](https://v7.nodcloud.cn)
 
 #### 商用版本
