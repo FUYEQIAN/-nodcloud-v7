@@ -1,0 +1,45 @@
+.themeGroup{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	list-style: none;
+}
+.themeGroup li{
+	width: 80px;
+	height: 50px;
+	background: #F2F2F2;
+	position: relative;
+	margin-bottom: 12px;
+	border: 1px solid #E4E7ED;
+}
+.themeGroup li.selected:after{
+	content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 6px;
+    top: -6px;
+    left: -6px;
+    border: 1px solid #5FB878;
+}
+.themeGroup .lt{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 15px;
+	height: 10px;
+}
+.themeGroup .tr{
+	position: absolute;
+	left: 15px;
+	top: 0;
+	width: 65px;
+	height: 10px;
+}
+.themeGroup .lb{
+	position: absolute;
+	left: 0;
+	top:10px;
+	width: 15px;
+	height: 40px;
+}

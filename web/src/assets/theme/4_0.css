@@ -1,0 +1,74 @@
+.theme_4_0 .el-aside .logo{
+	box-sizing: border-box;
+	border-bottom: 1px solid #E4E7ED;
+	border-right: 1px solid #E4E7ED;
+}
+.theme_4_0 .el-aside .logo span {
+	color: #333;
+}
+.theme_4_0 .el-aside .logo i{
+	color: #333;
+}
+.theme_4_0 .el-aside .el-scrollbar{
+	box-sizing: border-box;
+	border-right: 1px solid #E4E7ED;
+}
+.theme_4_0 .el-header {
+	box-sizing: border-box;
+	border-bottom: 1px solid #E4E7ED;
+	background: #fff;
+	color: #333;
+}
+.theme_4_0 .menuList[level="1"]{
+	background: #fff;
+}
+.theme_4_0 .menuList[level="2"]{
+	background: #F2F2F2;
+}
+.theme_4_0 .menuList[level="3"]{
+	background: #E5E5E5;
+}
+
+.theme_4_0 .el-submenu__title,.theme_4_0 .el-menu-item{
+	color: #333 !important;
+}
+.theme_4_0 .el-menu-item.is-active{
+	border-left: 4px solid #727376!important;
+	background-color: #d4d4d4!important;
+	color: #333!important;
+}
+.theme_4_0 .el-menu-item.is-active i{
+	color: #333 !important;
+}
+.theme_4_0 .el-menu-item:not(.is-active):focus,
+.theme_4_0 .el-menu-item:not(.is-active):hover,
+.theme_4_0 .el-submenu__title:not(.is-active):hover{
+	background: #d4d4d4 !important;
+}
+.theme_4_0 .el-main .homeLabel .is-active {
+	color: #000;
+	background: #f7f7f7;
+}
+.theme_4_0 .el-main .homeLabel .el-tabs__item:hover{
+	color: initial !important;
+}
+
+/* 预览 */
+.themeGroup .T_4_0 .lt{
+	background: #fff;
+}
+.themeGroup .T_4_0 .lt:after{
+	content: '';
+	position: absolute;
+	width: 15px;
+	height: 10px;
+	top: 10px;
+	background: #d4d4d4;
+	z-index: 2;
+}
+.themeGroup .T_4_0 .tr{
+	background: #fff;
+}
+.themeGroup .T_4_0 .lb{
+	background: #fff;
+}

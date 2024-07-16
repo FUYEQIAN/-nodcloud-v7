@@ -1,0 +1,65 @@
+.theme_2_2 .el-aside{
+	background: #2F4050;
+}
+.theme_2_2 .el-aside .logo{
+	box-sizing: border-box;
+	border-bottom: 1px solid #263340;
+	background: #2F4050;
+}
+.theme_2_2 .el-aside .logo span {
+	color: #f5f5f5;
+}
+.theme_2_2 .el-aside .logo i{
+	color: #f5f5f5;
+}
+.theme_2_2 .el-aside .el-scrollbar{
+	box-sizing: border-box;
+	border-right: 1px solid #263340;
+}
+.theme_2_2 .el-header {
+	box-sizing: border-box;
+	border-bottom: 1px solid #263340;
+	background: #2F4050;
+	color: #f5f5f5;
+}
+.theme_2_2 .menuList[level="1"]{
+	background: #2F4050;
+}
+.theme_2_2 .menuList[level="2"]{
+	background: #273644;
+}
+.theme_2_2 .menuList[level="3"]{
+	background: #202c38;
+}
+.theme_2_2 .el-submenu__title,.theme_2_2 .el-menu-item{
+	color: #ccc !important;
+}
+.theme_2_2 .el-menu-item.is-active{
+    background-color: #19AA8D !important;
+    color: #fff!important;
+}
+.theme_2_2 .el-menu-item.is-active i{
+	color: #fff !important;
+}
+.theme_2_2 .el-menu-item:not(.is-active):focus,
+.theme_2_2 .el-menu-item:not(.is-active):hover,
+.theme_2_2 .el-submenu__title:not(.is-active):hover{
+	background: #19AA8D !important;
+}
+.theme_2_2 .el-main .homeLabel .is-active {
+	color: #000;
+	background: #f7f7f7;
+}
+.theme_2_2 .el-main .homeLabel .el-tabs__item:hover{
+	color: initial !important;
+}
+/* 预览 */
+.themeGroup .T_2_2 .lt{
+	background: #2F4050;
+}
+.themeGroup .T_2_2 .tr{
+	background: #2F4050;
+}
+.themeGroup .T_2_2 .lb{
+	background: #2F4050;
+}

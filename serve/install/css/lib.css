@@ -1,0 +1,117 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body {
+	font: 14px "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+	background: #f9f9f9;
+}
+header{
+	height:80px;
+	background: #0F86EA;
+}
+.container{
+	width: 820px;
+	margin: 0 auto;
+}
+.title{
+	color: #fff;
+	position: relative;
+}
+.title .name{
+	font-size: 18px;
+	line-height: 80px;
+}
+.title .product{
+	position: absolute;
+	right: 0;
+	bottom: 6px;
+}
+.box{
+	margin-top: 32px;
+	padding: 9px 12px;
+	border-radius: 2px;
+	background: #fcfcfc;
+	border: 1px solid #ccc;
+}
+.box > div{
+	display: none;
+}
+.box button{
+	padding: 2px 6px;
+}
+fieldset {
+	padding: 9px 12px;
+	border: 1px solid #eee;
+	background: #fafafa;
+}
+legend {
+	color: #4275a5;
+	font-weight: bold;
+}
+.success{
+	color: #009933;
+}
+.success i{
+	background: url(../img/success.png) 0 no-repeat;
+}
+.warning{
+	color: #f00;
+}
+.warning i{
+	background: url(../img/warning.png) 0 no-repeat;
+}
+#content1 > *{
+	color: #333;
+	line-height: 24px;
+}
+#content2 > *{
+	margin-bottom: 12px;
+}
+#content2 ul{
+	width: 90%;
+	margin: 0 auto;
+	list-style-type:none;
+}
+#content2 li{
+	width: 30%;
+	float: left;
+	line-height: 36px;
+}
+#content2 li i{
+	float: right;
+    margin-right: 20%;
+}
+#content2 li span{
+	width: 200px;
+}
+#content2 .group{
+	text-align: center;
+}
+#content2 .group button{
+	display: inline;
+}
+#content3{
+	color: #333;
+}
+#content3 > *{
+	margin-bottom: 12px;
+}
+#content3 .form{
+	margin-left: 16%;
+}
+#content3 .form .row{
+	line-height: 36px;
+}
+#content3 .form tip{
+	color: #999;
+}
+#content4 > *{
+	text-align: center;
+	margin-bottom: 12px;
+}
+footer p{
+	margin: 15px 0;
+	font-size: 12px;
+	text-align: center;
+}
