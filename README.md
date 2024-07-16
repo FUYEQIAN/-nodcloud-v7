@@ -46,5 +46,5 @@ ERP进销存采用前后端分离架构，前端基于Node.js、Vue2、Element-U
 
 #### 交流群
 1. 社区版QQ交流群：640974004
-2. [客服支持](https://www.nodcloud.com/about#contact)
+2. 在线客服 [点击查看](https://www.nodcloud.com/about#contact)
 3. 客服电话：400-728-0806
