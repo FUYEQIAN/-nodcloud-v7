@@ -6,9 +6,6 @@
 #### 软件架构
 ERP进销存采用前后端分离架构，前端基于Node.js、Vue2、Element-UI，后端基于ThinkPHP6 ，它具有模块化、易扩展等特点，使得开发者可以根据自己的需求进行定制化开发
 
-#### 文档结构
-1. serve（后端）
-2. web（前端）
 
 #### 演示站点
 1. [点击查看](https://web.nodcloud.cn)
@@ -19,6 +16,14 @@ ERP进销存采用前后端分离架构，前端基于Node.js、Vue2、Element-U
 1. PHP7.3
 2. mysql5.6（5.7以上版本需要关闭数据库严格模式 [视频教程](https://www.bilibili.com/video/BV1F54y1A7Vc) [文本教程](https://docs.nodcloud.com/erp/v7/com)）
 3. 需配置THINKPHP伪静态
+
+#### 文档结构
+1. serve（后端代码）
+2. web（前端代码）
+
+#### 编译说明
+1.将前端代码编译后按照开发文档放置目录
+2.将放置后的后端代码上传更目录访问即可
 
 #### 文档教程
 1. [使用文档](https://docs.nodcloud.com/erp/v7/doc)
@@ -34,6 +39,7 @@ ERP进销存采用前后端分离架构，前端基于Node.js、Vue2、Element-U
 
 #### 商用版本
 1. 商业版为点可云主力产品，提供长期售后支持。
+2. 商业版为全新架构LARAVEL+VUE3，持续迭代。
 2. 商业版支持全终端使用（安卓、苹果、小程序）。
 3. [产品介绍](https://www.nodcloud.com/product/erp)
 4. [演示地址](https://erp.nodcloud.com)
