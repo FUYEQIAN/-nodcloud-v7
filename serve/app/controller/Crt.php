@@ -376,22 +376,42 @@ class Crt extends Acl{
                 ];
                 $nodeUnionSql=frameScope($nodeUnionSql);
                 
+                foreach ($tab as $t) {
+                    if(!in_array($t,['vend','vre'])){
+                        $nodeUnion[]=Db::name($t)->where(sqlAuth($t,$nodeUnionSql))->fieldRaw('"'.$t.'" as mold,sum('.(in_array($t,['sell','sre','ice'])?'actual - money':'total').') as calc')->group(['mold'])->buildSql();
+                    }
+                }
                 $nodeUnion=implode(' UNION ALL ',$nodeUnion);
                 $stats=DB::query('SELECT * FROM ('.$nodeUnion.') as nodcloud');
                 $calc=[];
-                
+                foreach ($tab as $t) {
+                    if(!in_array($t,['vend','vre'])){
+                        $find=search($stats)->where([['mold','=',$t]])->find();
+                        if(empty($find)){
+                            $calc[$t]=0;
+                        }else{
+                            $calc[$t]=$find['calc'];
+                        }
+                    }
+                }
                 $balance=math()->chain($calc['sell'])->sub($calc['sre'])->sub($calc['imy'])->add($calc['ice'])->done();
                 array_unshift($node,['key'=>$vo['id'].'_'.'0','bill'=>'期初余额','balance'=>$balance]);
                 foreach ($node as $nodeKey=>$nodeVo) {
                     //跳过期初
                     if(!empty($nodeKey)){
                         $node[$nodeKey]['key']=$vo['id'].'_'.$nodeVo['id'].'_'.$nodeVo['mold'];
-                        $node[$nodeKey]['bill']=['sell'=>'销售单','sre'=>'销售退货单','imy'=>'收款单','ice'=>'其它收入单'][$nodeVo['mold']];
+                        $node[$nodeKey]['bill']=['sell'=>'销售单','sre'=>'销售退货单','vend'=>'零售单','vre'=>'零售退货单','imy'=>'收款单','ice'=>'其它收入单'][$nodeVo['mold']];
                         if($nodeVo['mold']=='sell'){
                             $node[$nodeKey]['cw']=math()->chain($nodeVo['actual'])->sub($nodeVo['money'])->done();
                             $node[$nodeKey]['pia']=0;
                         }else if($nodeVo['mold']=='sre'){
                             $node[$nodeKey]['cw']=math()->chain($nodeVo['actual'])->sub($nodeVo['money'])->mul(-1)->done();
+                            $node[$nodeKey]['pia']=0;
+                        }else if($nodeVo['mold']=='vend'){
+                            $node[$nodeKey]['cw']=0;
+                            $node[$nodeKey]['pia']=0;
+                        }else if($nodeVo['mold']=='vre'){
+                            $node[$nodeKey]['cw']=0;
                             $node[$nodeKey]['pia']=0;
                         }else if($nodeVo['mold']=='imy'){
                             $node[$nodeKey]['cw']=0;
@@ -472,22 +492,41 @@ class Crt extends Acl{
                     ['time','<',existFull($input,['startTime'])?strtotime($input['startTime']):0]
                 ];
                 $nodeUnionSql=frameScope($nodeUnionSql);
-               
+                foreach ($tab as $t) {
+                    if(!in_array($t,['vend','vre'])){
+                        $nodeUnion[]=Db::name($t)->where(sqlAuth($t,$nodeUnionSql))->fieldRaw('"'.$t.'" as mold,sum('.(in_array($t,['sell','sre','ice'])?'actual - money':'total').') as calc')->group(['mold'])->buildSql();
+                    }
+                }
                 $nodeUnion=implode(' UNION ALL ',$nodeUnion);
                 $stats=DB::query('SELECT * FROM ('.$nodeUnion.') as nodcloud');
                 $calc=[];
-                
+                foreach ($tab as $t) {
+                    if(!in_array($t,['vend','vre'])){
+                        $find=search($stats)->where([['mold','=',$t]])->find();
+                        if(empty($find)){
+                            $calc[$t]=0;
+                        }else{
+                            $calc[$t]=$find['calc'];
+                        }
+                    }
+                }
                 $balance=math()->chain($calc['sell'])->sub($calc['sre'])->sub($calc['imy'])->add($calc['ice'])->done();
                 array_unshift($node,['bill'=>'期初余额','balance'=>$balance]);
                 foreach ($node as $nodeKey=>$nodeVo) {
                     //跳过期初
                     if(!empty($nodeKey)){
-                        $node[$nodeKey]['bill']=['sell'=>'销售单','sre'=>'销售退货单','imy'=>'收款单','ice'=>'其它收入单'][$nodeVo['mold']];
+                        $node[$nodeKey]['bill']=['sell'=>'销售单','sre'=>'销售退货单','vend'=>'零售单','vre'=>'零售退货单','imy'=>'收款单','ice'=>'其它收入单'][$nodeVo['mold']];
                         if($nodeVo['mold']=='sell'){
                             $node[$nodeKey]['cw']=math()->chain($nodeVo['actual'])->sub($nodeVo['money'])->done();
                             $node[$nodeKey]['pia']=0;
                         }else if($nodeVo['mold']=='sre'){
                             $node[$nodeKey]['cw']=math()->chain($nodeVo['actual'])->sub($nodeVo['money'])->mul(-1)->done();
+                            $node[$nodeKey]['pia']=0;
+                        }else if($nodeVo['mold']=='vend'){
+                            $node[$nodeKey]['cw']=0;
+                            $node[$nodeKey]['pia']=0;
+                        }else if($nodeVo['mold']=='vre'){
+                            $node[$nodeKey]['cw']=0;
                             $node[$nodeKey]['pia']=0;
                         }else if($nodeVo['mold']=='imy'){
                             $node[$nodeKey]['cw']=0;
