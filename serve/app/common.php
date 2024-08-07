@@ -945,17 +945,7 @@ function getUserRoot() {
         return $data;
     }
 }
-//获取组织零售单配置
-function getFrameDeploy(){
-    $userFrame=userInfo(getUserID(),'frame');
-    $frame=db('frame')->where([['id','=',$userFrame]])->find();
-    $deploy=db('deploy')->where([['frame','=',$frame['id']]])->find();
-    while ($frame['pid']!=-1 && empty($deploy)){
-        $frame=db('frame')->where([['id','=',$frame['pid']]])->find();
-        $deploy=db('deploy')->where([['frame','=',$frame['id']]])->find();
-    }
-    return empty($deploy)?null:json_decode($deploy['source'],true);
-}
+
 
 //获用户权限菜单数据
 function getRootMemu() {
