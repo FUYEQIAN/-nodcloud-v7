@@ -89,8 +89,7 @@ class Account extends Acl {
                 ['table'=>'bre','where'=>[['account','=',$input['id']]]],
                 ['table'=>'ice','where'=>[['account','=',$input['id']]]],
                 ['table'=>'oce','where'=>[['account','=',$input['id']]]],
-                ['table'=>'allot_info','where'=>[['account|tat','=',$input['id']]]],
-                ['table'=>'deploy','where'=>[['source','like','%"account":'.$input['id'].'%']]]
+                ['table'=>'allot_info','where'=>[['account|tat','=',$input['id']]]]
             ]);
             if(empty($exist)){
                 //逻辑处理
