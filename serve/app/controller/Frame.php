@@ -78,13 +78,11 @@ class Frame extends Acl{
                     $exist=moreTableFind([
                         ['table'=>'account','where'=>[['frame','=',$input['id']]]],
                         ['table'=>'allot','where'=>[['frame','=',$input['id']]]],
-                        ['table'=>'barter','where'=>[['frame','=',$input['id']]]],
                         ['table'=>'bill','where'=>[['frame','=',$input['id']]]],
                         ['table'=>'bor','where'=>[['frame','=',$input['id']]]],
                         ['table'=>'bre','where'=>[['frame','=',$input['id']]]],
                         ['table'=>'buy','where'=>[['frame','=',$input['id']]]],
                         ['table'=>'customer','where'=>[['frame','=',$input['id']]]],
-                        ['table'=>'deploy','where'=>[['frame','=',$input['id']]]],
                         ['table'=>'entry','where'=>[['frame','=',$input['id']]]],
                         ['table'=>'extry','where'=>[['frame','=',$input['id']]]],
                         ['table'=>'ice','where'=>[['frame','=',$input['id']]]],
