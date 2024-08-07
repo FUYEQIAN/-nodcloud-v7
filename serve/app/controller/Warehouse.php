@@ -90,8 +90,7 @@ class Warehouse extends Acl {
                 ['table'=>'bre_info','where'=>[['warehouse','=',$input['id']]]],
                 ['table'=>'extry_info','where'=>[['warehouse','=',$input['id']]]],
                 ['table'=>'entry_info','where'=>[['warehouse','=',$input['id']]]],
-                ['table'=>'swap_info','where'=>[['warehouse|storehouse','=',$input['id']]]],
-                ['table'=>'deploy','where'=>[['source','like','%"warehouse":'.$input['id'].'%']]]
+                ['table'=>'swap_info','where'=>[['warehouse|storehouse','=',$input['id']]]]
             ]);
             if(empty($exist)){
                 //逻辑处理
