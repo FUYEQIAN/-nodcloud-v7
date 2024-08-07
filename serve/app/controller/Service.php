@@ -536,22 +536,7 @@ class Service extends Acl {
         }
         return json($result);
     }
-    //零售配置
-    public function getDeploy(){
-        $deploy=getFrameDeploy();
-        if(!empty($deploy)){
-            //安全处理-隐藏接口配置
-            $deploy['wechat']=[
-                'enable'=>$deploy['wechat']['enable'],
-                'account'=>$deploy['wechat']['account']
-            ];
-            $deploy['ali']=[
-                'enable'=>$deploy['ali']['enable'],
-                'account'=>$deploy['ali']['account']
-            ];
-        }
-        return json(['state'=>'success','info'=>$deploy]);
-    }
+    
     //扩展字段文件上传
     public function fieldUpload() {
         $file = request()->file('file');
