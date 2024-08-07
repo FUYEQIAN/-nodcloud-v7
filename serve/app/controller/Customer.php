@@ -95,10 +95,6 @@ class Customer extends Acl {
                 ['table'=>'bill','where'=>[['customer','in',$input['parm']]]],
                 ['table'=>'ice','where'=>[['customer','in',$input['parm']]]]
             ];
-            //多值匹配
-            foreach($input['parm'] as $v){
-                $exists[]=['table'=>'deploy','where'=>[['source','like','%"customer":'.$v.'%']]];
-            }
             $exist=moreTableFind($exists);
             if(empty($exist)){
                 //逻辑处理
