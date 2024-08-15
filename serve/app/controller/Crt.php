@@ -1697,9 +1697,9 @@ class Crt extends Acl{
             }
         }
         //计算数据
-        $si=math()->chain($record[0]['money'])->sub($record[1]['money'])->add($record[2]['money'])->sub($record[3]['money'])->done();
-        $cost=math()->chain($record[0]['cost'])->add($record[1]['cost'])->add($record[2]['cost'])->add($record[3]['cost'])->done();
-        $bct=math()->chain($summary[0]['bct'])->sub($summary[1]['bct'])->add($summary[2]['bct'])->sub($summary[3]['bct'])->done();
+        $si=math()->chain($record[0]['money'])->sub($record[1]['money'])->done();
+        $cost=math()->chain($record[0]['cost'])->add($record[1]['cost'])->done();
+        $bct=math()->chain($summary[0]['bct'])->sub($summary[1]['bct'])->done();
         $profit=math()->chain($si)->sub($cost)->sub($bct)->done();
         $data=[
             ['name'=>'主营业务','money'=>''],
