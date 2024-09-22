@@ -78,6 +78,7 @@
 				</el-popover>
 				<el-button @click="dialog = false">取消</el-button>
 				<el-button @click="choice" type="primary">选择</el-button>
+                <el-button @click="switchPage('goods')" type="success">新增商品</el-button>
 			</span>
 		</el-dialog>
 	</div>
@@ -127,6 +128,11 @@
 			}
 		},
 		methods: {
+            //切换页面
+			 switchPage(key) {
+				this.$bus.emit("switchPage", key, true); //切换页面
+				this.dialog = false;
+			},
 			//搜索商品
 			record(page){
 				page==0||(this.page.current=page);
