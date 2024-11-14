@@ -30,8 +30,13 @@ class Buy extends Acl{
             }
             $sql=frameScope($sql);//组织数据
             $sql=sqlAuth('buy',$sql);//数据鉴权
+            
+             //排序
+            $column=empty($input['column'])?'id':$input['column'];
+            $order=empty($input['order'])?'desc':$input['order'];
+            
             $count = Buys::where($sql)->count();//获取总条数
-            $info = Buys::with(['frameData','supplierData','peopleData','userData','billData','costData','invoiceData','recordData'])->where($sql)->append(['extension'])->page($input['page'],$input['limit'])->order(['id'=>'desc'])->select()->toArray();//查询分页数据
+            $info = Buys::with(['frameData','supplierData','peopleData','userData','billData','costData','invoiceData','recordData'])->where($sql)->append(['extension'])->page($input['page'],$input['limit'])->order([$column=>$order])->select()->toArray();//查询分页数据
             //关联单据
             if(!empty($info)){
                 $bor=Db::name('bor')->where([['id','in',array_column($info,'source')]])->select()->toArray();
