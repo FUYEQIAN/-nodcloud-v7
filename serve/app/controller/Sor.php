@@ -29,8 +29,14 @@ class Sor extends Acl{
             }
             $sql=frameScope($sql);//组织数据
             $sql=sqlAuth('sor',$sql);//数据鉴权
+            
+            //排序
+            $column=empty($input['column'])?'id':$input['column'];
+            $order=empty($input['order'])?'desc':$input['order'];
+            
             $count = Sors::where($sql)->count();//获取总条数
-            $info = Sors::with(['frameData','customerData','peopleData','userData','recordData'])->where($sql)->append(['extension'])->page($input['page'],$input['limit'])->order(['id'=>'desc'])->select()->toArray();//查询分页数据
+            $info = Sors::with(['frameData','customerData','peopleData','userData','recordData'])->where($sql)->append(['extension'])->page($input['page'],$input['limit'])->order([$column=>$order])->select()->toArray();//查询分页数据
+            
             //关联单据
             if(!empty($info)){
                 $bor=Db::name('bor')->where([['source','in',array_column($info,'id')]])->select()->toArray();
