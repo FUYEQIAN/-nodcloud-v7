@@ -145,6 +145,7 @@
     <el-table
       :data="tableData"
       height="calc(100% - 90px)"
+      @sort-change="sortTableFun"
       @selection-change="selectionChange"
       border
       v-madeTable
@@ -172,12 +173,14 @@
         label="单据时间"
         align="center"
         width="120px"
+        sortable
       ></el-table-column>
       <el-table-column
         prop="number"
         label="单据编号"
         align="center"
         width="200px"
+        sortable
       >
         <template slot-scope="scope">
           <template v-if="scope.row.relation.length == 0">
@@ -229,18 +232,21 @@
         label="单据金额"
         align="center"
         width="120px"
+        sortable
       ></el-table-column>
       <el-table-column
         prop="actual"
         label="实际金额"
         align="center"
         width="120px"
+        sortable
       ></el-table-column>
       <el-table-column
         prop="arrival"
         label="到货日期"
         align="center"
         width="120px"
+        sortable
       ></el-table-column>
       <el-table-column
         prop="peopleData.name"
@@ -452,6 +458,10 @@ export default {
         state: "",
         data: "",
       },
+      columns:{
+        column:'',
+        order:''
+      },
       tableData: [],
       tableSelection: [],
       page: {
@@ -498,6 +508,22 @@ export default {
         .format("YYYY-MM-DD");
       this.searchFrom.endTime = this.$moment().format("YYYY-MM-DD");
     },
+    //列表排序
+    sortTableFun(column) {
+        this.columns.column = column.prop; //该方法获取到当前列绑定的prop字段名赋值给一个变量，之后这个变量做为入参传给后端
+        if (column.prop) {
+            //该列有绑定prop字段走这个分支
+            if (column.order == 'ascending') {
+                //当用户点击的是升序按钮，即ascending时
+                this.columns.order = 'asc'; //将order这个变量赋值为后端接口文档定义的升序的字段名，之后作为入参传给后端
+            } else if (column.order == 'descending') {
+                //当用户点击的是升序按钮，即descending时
+                this.columns.order = 'desc'; //将order这个变量赋值为后端接口文档定义的降序的字段名，之后作为入参传给后端
+            }
+        }
+        this.record(1);
+       
+    },
     //获取数据
     record(page) {
       page == 0 || (this.page.current = page);
@@ -506,6 +532,7 @@ export default {
           page: this.page.current,
           limit: this.page.size,
         },
+        this.columns,
         this.searchFrom
       );
       this.$axios.post("sor/record", parm).then((result) => {
