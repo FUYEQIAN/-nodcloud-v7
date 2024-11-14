@@ -31,7 +31,12 @@ class Sre extends Acl{
             $sql=frameScope($sql);//组织数据
             $sql=sqlAuth('sre',$sql);//数据鉴权
             $count = Sres::where($sql)->count();//获取总条数
-            $info = Sres::with(['frameData','customerData','peopleData','userData','billData','costData','invoiceData','recordData'])->where($sql)->append(['extension'])->page($input['page'],$input['limit'])->order(['id'=>'desc'])->select()->toArray();//查询分页数据
+            
+            //排序
+            $column=empty($input['column'])?'id':$input['column'];
+            $order=empty($input['order'])?'desc':$input['order'];
+            
+            $info = Sres::with(['frameData','customerData','peopleData','userData','billData','costData','invoiceData','recordData'])->where($sql)->append(['extension'])->page($input['page'],$input['limit'])->order([$column=>$order])->select()->toArray();//查询分页数据
             //关联单据
             if(!empty($info)){
                 $sell=Db::name('sell')->where([['id','in',array_column($info,'source')]])->select()->toArray();
