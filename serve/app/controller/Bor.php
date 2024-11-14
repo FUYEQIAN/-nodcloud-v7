@@ -29,8 +29,13 @@ class Bor extends Acl{
             }
             $sql=frameScope($sql);//组织数据
             $sql=sqlAuth('bor',$sql);//数据鉴权
+            
+            //排序
+            $column=empty($input['column'])?'id':$input['column'];
+            $order=empty($input['order'])?'desc':$input['order'];
+            
             $count = Bors::where($sql)->count();//获取总条数
-            $info = Bors::with(['frameData','supplierData','peopleData','userData','recordData'])->where($sql)->append(['extension'])->page($input['page'],$input['limit'])->order(['id'=>'desc'])->select()->toArray();//查询分页数据
+            $info = Bors::with(['frameData','supplierData','peopleData','userData','recordData'])->where($sql)->append(['extension'])->page($input['page'],$input['limit'])->order([$column=>$order])->select()->toArray();//查询分页数据
             //关联单据
             if(!empty($info)){
                 $sor=Db::name('sor')->where([['id','in',array_column($info,'source')]])->select()->toArray();
